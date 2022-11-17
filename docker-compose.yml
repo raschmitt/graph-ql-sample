@@ -1,0 +1,20 @@
+services:     
+  redis:
+    image: bitnami/redis:latest
+    container_name: graph-ql-sample-redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    healthcheck:
+      test: redis-cli ping | grep PONG
+
+  graph-ql-sample:
+    image: graph-ql-sample
+    container_name: graph-ql-sample-api
+    build:
+        context: ./src/
+        dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      redis:
+        condition: service_healthy

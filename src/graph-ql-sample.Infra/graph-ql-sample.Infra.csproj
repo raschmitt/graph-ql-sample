@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>graph_ql_sample.Infra</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="StackExchange.Redis">
+        <HintPath>..\..\..\.nuget\packages\stackexchange.redis\2.6.70\lib\net5.0\StackExchange.Redis.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\graph-ql-sample.Domain\graph-ql-sample.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="StackExchange.Redis" Version="2.6.70" />
+    </ItemGroup>
+
+</Project>
